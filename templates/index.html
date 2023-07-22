@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Blog</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>My Blog</h1>
+  </header>
+
+  <div class="container">
+    {% for blog in blogs %}
+    <div class="post">
+      <h2 class="post-title">{{ blog["title"] }}</h2>
+      <p class="post-meta">{{ blog["subtitle"] }}</p>
+      <a href="{{url_for('blog_post', num=blog['id'])}}">Read more</a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <footer>
+    <p>&copy;{{year}} My Blog. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
